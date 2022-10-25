@@ -1,0 +1,37 @@
+
+
+
+set identity_insert Test.[Config Schema].MachineType on
+insert into Test.[Config Schema].MachineType([ID],[Type])
+select [ID],[Type] from ProductionDB.[Config Schema].MachineType
+set identity_insert Test.[Config Schema].MachineType off
+
+set identity_insert Test.[Config Schema].DefinedMachines on
+insert into Test.[Config Schema].DefinedMachines ([ID],[MachineTypeID],[Name],[Description])
+select [ID],[MachineTypeID],[Name],[Description] from ProductionDB.[Config Schema].DefinedMachines
+set identity_insert Test.[Config Schema].DefinedMachines off
+
+set identity_insert Test.[Config Schema].Operators on
+insert into Test.[Config Schema].Operators ([ID],[Name],[LastName],[UserName],[Pass])
+select [ID],[Name],[LastName],[UserName],[Pass] from ProductionDB.[Config Schema].Operators
+set identity_insert Test.[Config Schema].Operators off
+
+set identity_insert Test.[Config Schema].ProductionPart on
+insert into Test.[Config Schema].ProductionPart ([ID],[Name],[Description])
+select [ID],[Name],[Description] from ProductionDB.[Config Schema].ProductionPart
+set identity_insert Test.[Config Schema].ProductionPart off
+
+set identity_insert Test.[Config Schema].[ProductionPartCompatible Machine] on
+insert into Test.[Config Schema].[ProductionPartCompatible Machine]  ([ID],[PartID],MachineTypeID)
+select [ID],PartID,MachineTypeID from ProductionDB.[Config Schema].[ProductionPartCompatible Machine] 
+set identity_insert Test.[Config Schema].[ProductionPartCompatible Machine]  off
+
+set identity_insert Test.[Config Schema].UsedMaterialManufacturer on
+insert into Test.[Config Schema].UsedMaterialManufacturer ([ID],[Name])
+select [ID],[Name] from ProductionDB.[Config Schema].UsedMaterialManufacturer
+set identity_insert Test.[Config Schema].UsedMaterialManufacturer off
+
+set identity_insert Test.[Config Schema].UsedMaterialType on
+insert into Test.[Config Schema].UsedMaterialType ([ID],[UsedMaterialType])
+select [ID],[UsedMaterialType] from ProductionDB.[Config Schema].UsedMaterialType
+set identity_insert Test.[Config Schema].UsedMaterialType off

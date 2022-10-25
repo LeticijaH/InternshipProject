@@ -1,0 +1,3 @@
+﻿CREATE LOGIN [OFFICE-MIKROSAM\leticijah]
+    FROM WINDOWS WITH DEFAULT_LANGUAGE = [us_english];
+
